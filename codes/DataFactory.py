@@ -159,7 +159,7 @@ class DataFactory:
                          'xgbCla': tfd.XGBClassifierTransform()}
         elif typ == 'reg':
             operators = {'dtReg': tfd.DecisionTreeRegressorTransform(), 'liReg': tfd.LinearRegressorTransform(),
-                         'mlpReg': tfd.MLPRegressorTransform(), 'knReg': tfd.NearestNeighborsRegressorTransform(),
+                         'mlpReg': tfd.MLPRegressorTransform(), #'knReg': tfd.NearestNeighborsRegressorTransform(),
                          'svReg': tfd.SVRTransform(), 'gdwReg': tfd.GauDotWhiteRegressorTransform(),
                          'geReg': tfd.GauExpRegressorTransform(), 'grbfReg': tfd.GauRBFRegressorTransform(),
                          'rfReg': tfd.RandomForestRegressorTransform(), 'xgbReg': tfd.XGBRegressorTransform()}
