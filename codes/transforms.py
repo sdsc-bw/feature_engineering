@@ -840,9 +840,9 @@ class NearestNeighborsRegressorTransform(Transform):
         neigh.kneighbors(n_neighbors=5)
         neigh.fit(X_train)
         indx = pd.DataFrame(neigh.kneighbors(X_train)[1], index=X_train.index)
-        out_train = pd.DataFrame([indx.apply(lambda x: y_train.iloc[x].mean(), axis=1)], columns = ['nn_target'])
+        out_train = pd.DataFrame(indx.apply(lambda x: np.mean([y_train.iloc[i] for i in x]), axis=1), columns = ['nn_target'])
         indy = pd.DataFrame(neigh.kneighbors(X_test)[1], index=X_test.index)
-        out_test = pd.DataFrame([indy.apply(lambda x: y_train.iloc[x].mean(), axis=1)], columns = ['nn_target'])
+        out_test = pd.DataFrame(indy.apply(lambda x: np.mean([y_train.iloc[i] for i in x]), axis=1), columns = ['nn_target'])
         return out_train, out_test
 
 
